@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+{% block content %}
+
+<div class="pages">
+
+
+  <h1>Create a New Item</h1>
+  <form action="{{ url_for('newItem', category_name = category_name) }}" method="POST">
+    <label for="name">Name: </label>
+    <br>
+    <input type="text" name="name" size='30'>
+    <br><br>
+
+    <label for="description">Description: </label>
+    <br>
+    <input type="text" name="description" style="width: 30em;">
+    <br><br>
+
+    <label for="category">Category: </label>
+    <br>
+    <select class="" name="category">
+      {% for c in categories %}
+      <option value="{{ c.name }}">{{ c.name }}</option>
+      {% endfor %}
+    </select>
+    <br><br>
+    <input type="submit" value="Create">
+
+    <a href="{{ url_for('showItems', category_name = category_name) }}">Cancel</a>
+  </form>
+</div>
+
+{% endblock %}

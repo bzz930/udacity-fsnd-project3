@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+{% block content %}
+
+<section class="wrapper">
+  <div class="left">
+    <h1>Categories</h1>
+    <button type="button" class="button">
+      <a id="addcatlnk" href="{{ url_for('newCategory') }}">Add Category</a>
+    </button>
+    <br><br>
+    {% for c in categories %}
+    <a href="{{ url_for('showItems', category_name = c.name) }}">
+      <span id="itnm">{{ c.name }}</span>
+    </a>
+    &ensp;
+    <a id="edtlnk"
+       href="{{ url_for('editCategory', category_name = c.name) }}">Edit</a>
+    <a id="edtlnk"
+       href="{{ url_for('deleteCategory', category_name = c.name) }}">Delete</a>
+    <br>
+    {% endfor %}
+  </div>
+
+  <div class="right">
+    <h1>{{ category.name }} Items ({{count}} items)</h1>
+    <br>
+    {% for i in items %}
+    <a href="{{ url_for('showItemInfo',
+                         category_name = category_name,
+                         item_name = i.name) }}">
+                         <span id="itnm">{{ i.name }}</span></a>
+    <br>
+    {% endfor %}
+    <br><br>
+    <button type="button" class="button">
+      <a id="addcatlnk" href="{{ url_for('newItem',
+                        category_name = category_name) }}">Add Item</a>
+    </button>
+
+
+  </div>
+</section>
+{% endblock %}

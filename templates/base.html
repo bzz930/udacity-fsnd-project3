@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+
+  <link rel="stylesheet"
+        href="{{ url_for('static', filename = 'css/styles.css') }}">
+  <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css?family=Poppins:300,700" >
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js">
+  </script>
+  <script src="https://apis.google.com/js/client:platform.js" async defer></script>
+
+  <script>
+    window.fbAsyncInit = function() {
+      FB.init({
+        appId      : '{384882225389267}',
+        cookie     : true,
+        xfbml      : true,
+        version    : '{v2.2}'
+      });
+
+      FB.AppEvents.logPageView();
+
+    };
+
+    (function(d, s, id){
+       var js, fjs = d.getElementsByTagName(s)[0];
+       if (d.getElementById(id)) {return;}
+       js = d.createElement(s); js.id = id;
+       js.src = "https://connect.facebook.net/en_US/sdk.js";
+       fjs.parentNode.insertBefore(js, fjs);
+     }(document, 'script', 'facebook-jssdk'));
+  </script>
+
+  <style>
+    html {
+      font-family: 'Poppins:300', sans-serif;
+    }
+    h1 {
+      font-family: 'Poppins:700', sans-serif;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="navbar">
+    <ul>
+      <li style="float:left"><a href="{{ url_for('catalog') }}"><span id="header">Snowboarding Wish List</span></a></li>
+      {% if 'username' not in session %}
+      <li style="float:right"><a href="{{ url_for('showLogin')}}"><span id="header">Log In</span></a></li>
+      {% else %}
+      <li style="float:right"><a href="{{ url_for('gdisconnect')}}"><span id="header">Log Out</span></a></li>
+      {% endif %}
+    </ul>
+  </div>
+
+
+  {% for msg in get_flashed_messages() %}
+  <div class="alert">
+    <span class="closebtn"
+          onclick="this.parentElement.style.display='none';">&times;</span>
+    {{msg}}
+  </div>
+  {% endfor %}
+
+  <div class="container">
+    {% block content %}
+
+    {% endblock %}
+  </div>
+
+</body>
+
+</html>

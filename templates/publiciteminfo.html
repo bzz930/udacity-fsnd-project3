@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% block content %}
+
+<div class="pages">
+  <h1>{{ item.name }}</h1>
+  <p>{{ item.description }}</p>
+
+  <button type="button" name="button" class="button2">
+    <a href="{{ url_for('showItems', category_name = category_name) }}">
+      Back to {{ category.name }}</a>
+  </button>
+
+  <button type="button" name="button" class="button2">
+    <a href="{{ url_for('catalog') }}">
+      Back to Catalog</a>
+  </button>
+
+</div>
+
+{% endblock %}

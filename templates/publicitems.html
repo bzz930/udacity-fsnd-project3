@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% block content %}
+
+<section class="wrapper">
+  <div class="left">
+    <h1>Categories</h1>
+    {% for c in categories %}
+    <a href="{{ url_for('showItems', category_name = c.name) }}">
+      <span id="itnm">{{ c.name }}</span>
+    </a>
+    <br>
+    {% endfor %}
+  </div>
+
+  <div class="right">
+    <h1>{{ category.name }} Items ({{count}} items)</h1>
+    {% for i in items %}
+    <a href="{{ url_for('showItemInfo',
+                         category_name = category_name,
+                         item_name = i.name) }}">
+                         <span id="itnm">{{ i.name }}</span></a>
+    <br>
+    {% endfor %}
+  </div>
+</section>
+{% endblock %}
