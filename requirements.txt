@@ -26,4 +26,3 @@ SQLAlchemy==1.2.6
 urllib3==1.22
 webencodings==0.5.1
 Werkzeug==0.14.1
-functools==2.7
