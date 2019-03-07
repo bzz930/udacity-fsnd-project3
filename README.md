@@ -11,6 +11,8 @@ IP address: 54.212.201.124
 
 URL: www.morejuno.com
 
+SSH Port: 2200
+
 ## Major Configurations
 **1 - Create a super user "grader" and give it key-based authentication**
 
