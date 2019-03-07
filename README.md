@@ -128,3 +128,11 @@ Now go to [54.212.201.124](54.212.201.124) and the project should be deployed an
 
 `sudo dpkg-reconfigure tzdata` -
 select "none of the above" and then select 33 UTC
+
+## Resources
+
+[Deploying a Flask App with Heroku](https://www.youtube.com/watch?v=5UNAy4GzQ5E)
+
+[SSH: How to access a remote server and edit files](https://www.youtube.com/watch?v=HcwK8IWc-a8)
+
+[Intro to TMux](https://www.youtube.com/watch?v=hZ0cUWWixqU)
